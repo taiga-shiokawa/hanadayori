@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { fetchFlowerImages, fetchMoreFlowerImages, searchFlowerImages } from '@/utils/api'
 import { FlowerImage } from '@/types/types'
-import { FaSpinner, FaHeart } from 'react-icons/fa'
+import { FaSpinner, FaHeart, FaCamera } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 
 // 花の種類のリスト（日本語: 英語）
@@ -44,6 +44,7 @@ const ImageSelector = ({ onSelectImage }: ImageSelectorProps) => {
   const [selectedFlower, setSelectedFlower] = useState<string>('')
   const [loadingMore, setLoadingMore] = useState<boolean>(false)
   const [page, setPage] = useState<number>(1)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     const loadInitialImages = async () => {
@@ -108,6 +109,44 @@ const ImageSelector = ({ onSelectImage }: ImageSelectorProps) => {
     }
   }
 
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader()
+        reader.onload = (event) => {
+          const imageUrl = event.target?.result as string
+          const customImage: FlowerImage = {
+            id: Date.now(),
+            width: 0,
+            height: 0,
+            url: imageUrl,
+            photographer: 'あなたの写真',
+            photographer_url: '',
+            photographer_id: 0,
+            avg_color: '',
+            src: {
+              original: imageUrl,
+              large2x: imageUrl,
+              large: imageUrl,
+              medium: imageUrl,
+              small: imageUrl,
+              portrait: imageUrl,
+              landscape: imageUrl,
+              tiny: imageUrl
+            },
+            liked: false,
+            alt: 'アップロードした画像'
+          }
+          onSelectImage(customImage)
+        }
+        reader.readAsDataURL(file)
+      } else {
+        toast.error('画像ファイルを選択してください')
+      }
+    }
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -152,6 +191,23 @@ const ImageSelector = ({ onSelectImage }: ImageSelectorProps) => {
               </option>
             ))}
           </select>
+        </div>
+
+        <div className="mt-6">
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className="w-full btn-secondary flex items-center justify-center"
+          >
+            <FaCamera className="mr-2" />
+            カメラロールから選択
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={handleFileSelect}
+            className="hidden"
+          />
         </div>
       </div>
 
