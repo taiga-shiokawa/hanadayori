@@ -103,7 +103,7 @@ export default function ViewMessage() {
                     onClick={() => setShowMessage(true)}
                     className="bg-white text-primary-600 font-medium px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                   >
-                    Read Message
+                    メッセージを読む
                   </button>
                 </motion.div>
               )}
