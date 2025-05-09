@@ -126,9 +126,6 @@ const LinkGenerator = ({ generatedLink, selectedImage, message, onBack }: LinkGe
             </div>
             <div className="p-6 bg-white">
               <p className="font-serif text-complement-700 whitespace-pre-wrap">{message}</p>
-              <p className="text-sm text-complement-500 mt-4 text-right italic">
-                写真: {selectedImage.photographer}
-              </p>
             </div>
           </motion.div>
         )}

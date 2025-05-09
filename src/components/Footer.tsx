@@ -16,7 +16,7 @@ const Footer = () => {
           </a>
         </p>
         <p className="text-complement-400 text-xs mt-2">
-          &copy; {new Date().getFullYear()} Blooming Messages. All rights reserved.
+          &copy; {new Date().getFullYear()} 花便り All rights reserved.
         </p>
       </div>
     </footer>

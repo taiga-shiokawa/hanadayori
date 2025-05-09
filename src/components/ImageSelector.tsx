@@ -255,11 +255,6 @@ const ImageSelector = ({ onSelectImage }: ImageSelectorProps) => {
               <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <FaHeart className="text-white text-5xl opacity-80" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black to-transparent">
-                <p className="text-white text-sm">
-                  写真: <span className="font-medium">{image.photographer}</span>
-                </p>
-              </div>
             </div>
           </motion.div>
         ))}

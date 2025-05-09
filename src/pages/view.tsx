@@ -71,7 +71,7 @@ export default function ViewMessage() {
           <div className="container mx-auto px-4 flex justify-between items-center">
             <Link href="/" className="flex items-center">
               <FaHeart className="text-primary-500 mr-2" />
-              <span className="text-xl font-serif text-complement-800">Blooming Messages</span>
+              <span className="text-xl font-serif text-complement-800">花便り</span>
             </Link>
             <Link href="/" className="btn-secondary text-sm flex items-center">
               <FaHome className="mr-1" /> Home
@@ -119,9 +119,6 @@ export default function ViewMessage() {
                 <p className="text-complement-700 font-serif whitespace-pre-wrap leading-relaxed">
                   {messageData.message}
                 </p>
-                <p className="text-sm text-complement-500 mt-6 text-right italic">
-                  Photo by {messageData.photographer}
-                </p>
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -136,10 +133,10 @@ export default function ViewMessage() {
           
           <div className="mt-8 text-center">
             <p className="text-complement-600 mb-4">
-              Want to send your own flower message?
+              お返しの花便りを作成してみますか？
             </p>
             <Link href="/" className="btn-primary">
-              Create a Message
+              花便りを作成する
             </Link>
           </div>
         </main>

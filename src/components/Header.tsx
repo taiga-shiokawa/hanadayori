@@ -30,7 +30,7 @@ const Header = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <p className="text-sm text-complement-500 hidden md:block italic font-serif">
-            Send flowers with love, digitally
+            大切な人に、今すぐ想いを伝えよう。花を添えて。
           </p>
         </motion.div>
       </div>

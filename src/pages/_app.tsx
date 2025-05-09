@@ -8,8 +8,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Flower Mail</title>
-        <meta name="description" content="Send beautiful flower messages to your loved ones" />
+        <title>花便り - 美しい花のメッセージカード</title>
+        <meta name="description" content="美しい花の写真を使って、大切な人にメッセージを送りましょう。" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
